@@ -1,12 +1,12 @@
 <div>
-  <input type="number" placeholder="First Number">
+  <input type="number" placeholder="First Number" [(ngModel)] = numOne>
 </div>
 <div>
-  <button>+</button> <button>-</button> <button>*</button> <button>/</button>
+  <button (click)="add()">+</button> <button (click)="sub()">-</button> <button (click)="mult()">*</button> <button (click)="divi()">/</button>
 </div>
 <div>
-  <input type="number" placeholder="Second Number">
+  <input type="number" placeholder="Second Number" [(ngModel)] = numTwo>
 </div>
-<div>
-  <input type="number" placeholder="Answer">
+<div *ngIf="answer">
+  <p>{{answer}}</p>
 </div>
