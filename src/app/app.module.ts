@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OperationsService } from './operations.service';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [OperationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
