@@ -1,12 +1,70 @@
-<div>
-  <input type="number" placeholder="First Number" [(ngModel)] = numOne>
+<div class="container">
+  <div class="row num-field">
+    <input type="number" placeholder="First Number" [(ngModel)] = numOne>
+  </div>
+  <div class="key-pad container">
+    <div class="row">
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">1</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">2</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">3</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3" (click)="add()">+</button> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">4</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">5</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">6</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3" (click)="sub()">-</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">7</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">8</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">9</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3" (click)="mult()">*</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">C</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">0</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3">.</button> 
+      </div>
+      <div class="num-key">
+        <button class="btn btn-primary centered col-md-3" (click)="divi()">/</button>
+      </div>
+    </div>
+  </div>
+  <div class="row num-field">
+    <input type="number" placeholder="Second Number" [(ngModel)] = numTwo>
+  </div>
+  <div *ngIf="answer">
+    <p>{{answer}}</p>
+  </div>
 </div>
-<div>
-  <button (click)="add()">+</button> <button (click)="sub()">-</button> <button (click)="mult()">*</button> <button (click)="divi()">/</button>
-</div>
-<div>
-  <input type="number" placeholder="Second Number" [(ngModel)] = numTwo>
-</div>
-<div *ngIf="answer">
-  <p>{{answer}}</p>
-</div>
+
