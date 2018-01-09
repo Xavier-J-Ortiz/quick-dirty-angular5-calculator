@@ -24,9 +24,11 @@ export class CalculatorComponent implements OnInit {
   divi() {
     this.answer = this.operationService.division(this.numOne, this.numTwo);
   }
+  stringHelper(number) {
+    this.numOne = Number(String(this.numOne ? this.numOne : '') + String(number));
+  }
   constructor(private operationService: OperationsService) { }
 
   ngOnInit() {
   }
-
 }

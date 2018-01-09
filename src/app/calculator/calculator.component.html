@@ -1,66 +1,66 @@
-<div class="container">
-  <div class="row num-field">
+<div class="">
+  <div class="num-field row justify-content-center">
     <input type="number" placeholder="First Number" [(ngModel)] = numOne>
   </div>
-  <div class="key-pad container">
-    <div class="row">
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">1</button> 
+  <div class="key-pad">
+    <div class="row justify-content-center odd-row">
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="stringHelper(1)">1</button> 
       </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">2</button> 
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="stringHelper(2)">2</button> 
       </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">3</button> 
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="stringHelper(3)">3</button> 
       </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3" (click)="add()">+</button> 
-      </div>
-    </div>
-    <div class="row">
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">4</button> 
-      </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">5</button> 
-      </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">6</button> 
-      </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3" (click)="sub()">-</button>
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="add()">+</button> 
       </div>
     </div>
-    <div class="row">
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">7</button> 
+    <div class="row justify-content-center">
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="stringHelper(4)">4</button> 
       </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">8</button> 
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="stringHelper(5)">5</button> 
       </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">9</button> 
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="stringHelper(6)">6</button> 
       </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3" (click)="mult()">*</button>
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="sub()">-</button>
       </div>
     </div>
-    <div class="row">
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">C</button> 
+    <div class="row justify-content-center odd-row">
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="stringHelper(7)">7</button> 
       </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">0</button> 
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="stringHelper(8)">8</button> 
       </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3">.</button> 
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="stringHelper(9)">9</button> 
       </div>
-      <div class="num-key">
-        <button class="btn btn-primary centered col-md-3" (click)="divi()">/</button>
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="mult()">*</button>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block">C</button> 
+      </div>
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="stringHelper(0)">0</button> 
+      </div>
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block">.</button> 
+      </div>
+      <div class="num-key col-xs-3">
+        <button class="btn btn-primary btn-block" (click)="divi()">/</button>
       </div>
     </div>
   </div>
-  <div class="row num-field">
+  <div class="num-field row justify-content-center">
     <input type="number" placeholder="Second Number" [(ngModel)] = numTwo>
   </div>
   <div *ngIf="answer">
