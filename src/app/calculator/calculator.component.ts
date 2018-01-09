@@ -11,6 +11,8 @@ export class CalculatorComponent implements OnInit {
   numOne: number;
   numTwo: number;
   answer: number;
+  dotSaver: string;
+
   add() {
     this.answer = this.operationService.addition(this.numOne, this.numTwo);
   }
@@ -24,8 +26,22 @@ export class CalculatorComponent implements OnInit {
   divi() {
     this.answer = this.operationService.division(this.numOne, this.numTwo);
   }
-  stringHelper(number) {
-    this.numOne = Number(String(this.numOne ? this.numOne : '') + String(number));
+  stringHelper(appendNumber) {
+    if (appendNumber !== '.') {
+      if (!(this.dotSaver)) {
+        this.numOne = Number(String(this.numOne ? this.numOne : '') + String(appendNumber));
+      }
+      else {
+        this.numOne = Number(this.dotSaver + String(appendNumber));
+        this.dotSaver = null;
+      }
+    }
+    else {
+      this.dotSaver = String(this.numOne ? this.numOne : '0') + '.';
+    }
+  }
+  clear() {
+    this.numOne = null;
   }
   constructor(private operationService: OperationsService) { }
 

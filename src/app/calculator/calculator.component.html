@@ -47,13 +47,13 @@
     </div>
     <div class="row justify-content-center">
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block">C</button> 
+        <button class="btn btn-primary btn-block" (click)="clear()">C</button> 
       </div>
       <div class="num-key col-xs-3">
         <button class="btn btn-primary btn-block" (click)="stringHelper(0)">0</button> 
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block">.</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper('.')">.</button> 
       </div>
       <div class="num-key col-xs-3">
         <button class="btn btn-primary btn-block" (click)="divi()">/</button>
