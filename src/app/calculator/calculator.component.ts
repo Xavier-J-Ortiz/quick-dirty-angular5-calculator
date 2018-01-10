@@ -11,7 +11,9 @@ export class CalculatorComponent implements OnInit {
   numOne: number;
   numTwo: number;
   answer: number;
-  dotSaver: string;
+  dotSaverOne: string;
+  dotSaverTwo: string;
+  operationSaver: string;
 
   add() {
     this.answer = this.operationService.addition(this.numOne, this.numTwo);
@@ -26,22 +28,58 @@ export class CalculatorComponent implements OnInit {
   divi() {
     this.answer = this.operationService.division(this.numOne, this.numTwo);
   }
-  stringHelper(appendNumber) {
-    if (appendNumber !== '.') {
-      if (!(this.dotSaver)) {
-        this.numOne = Number(String(this.numOne ? this.numOne : '') + String(appendNumber));
+  executeOperation(theOperation) {
+    switch (theOperation) {
+      case '+': {
+        this.add();
+        break;
       }
-      else {
-        this.numOne = Number(this.dotSaver + String(appendNumber));
-        this.dotSaver = null;
+      case '-': {
+        this.sub();
+        break;
+      }
+      case '*': {
+        this.mult();
+        break;
+      }
+      case '/': {
+        this.divi();
+        break;
       }
     }
-    else {
-      this.dotSaver = String(this.numOne ? this.numOne : '0') + '.';
+  }
+  stringHelper(appendNumber) {
+    if (!this.operationSaver) {
+      if (appendNumber !== '.') {
+        if (!(this.dotSaverOne)) {
+          this.numOne = Number(String(this.numOne ? this.numOne : '') + String(appendNumber));
+        } else {
+          this.numOne = Number(this.dotSaverOne + String(appendNumber));
+          this.dotSaverOne = null;
+        }
+      } else {
+        this.dotSaverOne = String(this.numOne ? this.numOne : '0') + '.';
+      }
+    } else {
+      if (appendNumber !== '.') {
+        if (!(this.dotSaverTwo)) {
+          this.numTwo = Number(String(this.numTwo ? this.numTwo : '') + String(appendNumber));
+        } else {
+          this.numTwo = Number(this.dotSaverTwo + String(appendNumber));
+          this.dotSaverTwo = null;
+        }
+      } else {
+        this.dotSaverTwo = String(this.numTwo ? this.numTwo : '0') + '.';
+      }
     }
   }
   clear() {
     this.numOne = null;
+    this.numTwo = null;
+    this.dotSaverOne = null;
+    this.dotSaverTwo = null;
+    this.answer = null;
+    this.operationSaver = null;
   }
   constructor(private operationService: OperationsService) { }
 

@@ -1,70 +1,88 @@
 <div class="">
-  <div class="num-field row justify-content-center">
-    <input type="number" placeholder="First Number" [(ngModel)] = numOne>
+  <div *ngIf="!operationSaver">
+    <div class="num-field row justify-content-center">
+      <input type="number" placeholder="First Number" [(ngModel)]=numOne>
+    </div>
+  </div>
+  <div *ngIf="operationSaver">
+    <div class="num-field row justify-content-center">
+      <input type="number" placeholder="Second Number" [(ngModel)]=numTwo>
+    </div>
   </div>
   <div class="key-pad">
     <div class="row justify-content-center odd-row">
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="stringHelper(1)">1</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper(1)">1</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="stringHelper(2)">2</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper(2)">2</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="stringHelper(3)">3</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper(3)">3</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="add()">+</button> 
+        <button class="btn btn-primary btn-block" (click)="operationSaver = '+'">+</button>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="stringHelper(4)">4</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper(4)">4</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="stringHelper(5)">5</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper(5)">5</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="stringHelper(6)">6</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper(6)">6</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="sub()">-</button>
+        <button class="btn btn-primary btn-block" (click)="operationSaver = '-'">-</button>
       </div>
     </div>
     <div class="row justify-content-center odd-row">
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="stringHelper(7)">7</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper(7)">7</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="stringHelper(8)">8</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper(8)">8</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="stringHelper(9)">9</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper(9)">9</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="mult()">*</button>
+        <button class="btn btn-primary btn-block" (click)="operationSaver = '*'">*</button>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="clear()">C</button> 
+        <button class="btn btn-primary btn-block" (click)="clear()">C</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="stringHelper(0)">0</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper(0)">0</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="stringHelper('.')">.</button> 
+        <button class="btn btn-primary btn-block" (click)="stringHelper('.')">.</button>
       </div>
       <div class="num-key col-xs-3">
-        <button class="btn btn-primary btn-block" (click)="divi()">/</button>
+        <button class="btn btn-primary btn-block" (click)="operationSaver = '/'">/</button>
       </div>
     </div>
+    <div class="row justify-content-center">
+      <div class="num-key col-offset-xs-9 col-xs-3">
+        <button class="btn btn-primary btn-block" (click) = "executeOperation(operationSaver)">=</button>
+      </div>
+    </div>
+
   </div>
-  <div class="num-field row justify-content-center">
-    <input type="number" placeholder="Second Number" [(ngModel)] = numTwo>
+  <div *ngIf="numOne">
+    <p>{{numOne}}</p>
+  </div>
+  <div *ngIf="operationSaver">
+    <p>{{operationSaver}}</p>
+  </div>
+  <div *ngIf="numTwo">
+    <p>{{numTwo}}</p>
   </div>
   <div *ngIf="answer">
-    <p>{{answer}}</p>
+    <p>= {{answer}}</p>
   </div>
 </div>
-
